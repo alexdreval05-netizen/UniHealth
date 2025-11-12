@@ -12,44 +12,108 @@
   <link rel="icon" href="assets/favicon.ico" />
   <style>
     :root{
-      --bg:#ffffff;--card:#ffffff;--ink:#0e2433;--muted:#5b6b7a;--accent:#1e90ff;--line:#e6edf3;
+      /* глубокая синяя палитра */
+      --bg:#06123a;           /* фоновый тёмно-синий */
+      --bg2:#0b1e6a;          /* градиентный второй */
+      --card:#0c1a55;         /* карточки */
+      --ink:#eaf2ff;          /* основной текст */
+      --muted:#b8c7e8;        /* вторичный текст */
+      --accent:#4da3ff;       /* голубой акцент */
+      --line:#1f2f7a;         /* граница */
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#ffffff 0%, #f6fbff 60%, #ffffff 100%)}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 800px at 120% -10%, #1a2c8f33, transparent 60%),
+        radial-gradient(900px 600px at -10% 120%, #16328a33, transparent 60%),
+        linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
+    }
     a{color:inherit}
     .wrap{max-width:1120px;margin:0 auto;padding:20px}
-    header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(8px); background:rgba(255,255,255,.8); border-bottom:1px solid var(--line); z-index:10}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    header{
+      position:sticky; top:0; z-index:20;
+      background:linear-gradient(180deg,#081543e6 0%, #081543cc 100%);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px}
     .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
     .links{display:flex;gap:18px;align-items:center}
     .links a{opacity:.9;text-decoration:none}
-    .btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:#f3f8ff;color:var(--ink);padding:10px 14px;border-radius:12px;text-decoration:none;transition:background .15s ease,transform .1s ease}
-    .btn:hover{background:#e9f3ff;transform:translateY(-2px)}
-    .btn.primary{background:var(--accent);color:#ffffff;border-color:transparent;font-weight:600}
-    .btn.primary:hover{background:#127eea}
-    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;padding:56px 0}
-    .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px;padding:6px 10px;background:#f7fbff}
-    h1{font-size:clamp(28px,5.2vw,56px);line-height:1.08;margin:14px 0 8px;color:#0b1b2b}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      border:1px solid var(--line); background:#0a1e5a; color:var(--ink);
+      padding:10px 14px; border-radius:12px; text-decoration:none;
+      transition:transform .08s ease, background .15s ease, box-shadow .2s ease;
+      box-shadow:0 6px 20px rgba(11,30,106,.18) inset;
+    }
+    .btn:hover{transform:translateY(-2px); background:#0d2673}
+    .btn.primary{background:var(--accent); color:#041033; border-color:transparent; font-weight:700; box-shadow:0 8px 26px rgba(77,163,255,.35)}
+    .btn.primary:hover{background:#3b93f2}
+
+    .hero{
+      display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center; padding:64px 0 40px;
+      position:relative;
+    }
+    .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px;padding:6px 10px;background:#0a1f62}
+    h1{font-size:clamp(28px,5.2vw,56px);line-height:1.08;margin:14px 0 8px}
     .lead{color:var(--muted);font-size:clamp(16px,2.2vw,20px);max-width:640px}
     .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .mock{border:1px solid var(--line);background:linear-gradient(180deg,#fbfdff,#f2f8ff);border-radius:24px;padding:12px;box-shadow:0 10px 30px rgba(30,144,255,.12)}
+
+    .mock{
+      position:relative;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,#0a1f62,#091749);
+      border-radius:24px; padding:12px;
+      box-shadow:
+        0 14px 50px rgba(12,28,96,.45),
+        inset 0 0 0 1px rgba(255,255,255,.03);
+    }
     .mock img{width:100%;height:auto;border-radius:16px;display:block}
-    .section{padding:48px 0}
-    h2{font-size:clamp(22px,3.4vw,32px);margin:0 0 12px;color:#0b1b2b}
+
+    .section{padding:56px 0}
+    h2{font-size:clamp(22px,3.4vw,32px);margin:0 0 12px}
     .muted{color:var(--muted)}
+
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 6px 16px rgba(13,71,161,.06)}
-    .card h3{margin:.2em 0 .3em;font-size:18px;color:#0b1b2b}
+    .card{
+      background:linear-gradient(180deg,#0c1a55,#0a1e62);
+      border:1px solid var(--line); border-radius:16px; padding:16px;
+      box-shadow:0 10px 30px rgba(8,21,67,.35);
+    }
+    .card h3{margin:.2em 0 .3em;font-size:18px}
+
     .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:12px}
-    .step{border:1px dashed var(--line);border-radius:16px;padding:16px;background:#f8fbff}
+    .step{
+      border:1px dashed var(--line); border-radius:16px; padding:16px;
+      background:rgba(13,36,114,.35)
+    }
+
     .faq{display:grid;grid-template-columns:1fr;gap:10px}
-    details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+    details{
+      background:linear-gradient(180deg,#0c1a55,#0a1e62);
+      border:1px solid var(--line); border-radius:12px; padding:12px
+    }
     summary{cursor:pointer;font-weight:600}
-    footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted);font-size:14px;background:#fbfdff}
+
+    footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted);font-size:14px;background:#081543}
+
+    /* декоративный фон из твоего изображения в углах */
+    .bg-corner{
+      position:absolute; inset:auto; pointer-events:none; opacity:.12; filter:saturate(120%) blur(2px);
+      z-index:0;
+    }
+    .bg-top{top:-40px; right:-40px; width:280px; transform:rotate(10deg)}
+    .bg-bottom{bottom:-60px; left:-40px; width:320px; transform:rotate(-8deg)}
     @media (max-width:920px){
-      .hero{grid-template-columns:1fr;gap:20px;padding:36px 0}
+      .hero{grid-template-columns:1fr;gap:20px;padding:44px 0}
       header{position:static}
+      .bg-top{display:none}
+      .bg-bottom{display:none}
     }
   </style>
 </head>
@@ -67,7 +131,11 @@
 
   <main class="wrap">
     <section class="hero">
-      <div>
+      <!-- декоративные угловые элементы из твоей картинки -->
+      <img class="bg-corner bg-top" src="assets/uh-cover.jpg" alt="" aria-hidden="true">
+      <img class="bg-corner bg-bottom" src="assets/uh-cover.jpg" alt="" aria-hidden="true">
+
+      <div style="position:relative;z-index:1">
         <span class="badge">Новый здоровый день — с ИИ за 1 минуту</span>
         <h1>UniHealth: вода, витамины, тренировки и рецепты — в одном приложении</h1>
         <p class="lead">Создавай устойчивые привычки без стресса: умные напоминания воды, персональные тренировки и рецепты под твои цели.</p>
@@ -76,8 +144,10 @@
           <a class="btn" href="#how">Смотреть как работает</a>
         </div>
       </div>
-      <div class="mock">
-        <img src="assets/hero-mockup.jpg" alt="UniHealth — экран приложения" />
+
+      <!-- карточка-мокап: показываем твоё изображение крупно -->
+      <div class="mock" style="position:relative;z-index:1">
+        <img src="assets/uh-cover.jpg" alt="UniHealth — визуальный мокап" />
       </div>
     </section>
 
