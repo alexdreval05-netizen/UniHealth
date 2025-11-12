@@ -1,18 +1,29 @@
-export default function App(){
-  return (
-    <div>
-      <style>{`
-    :root{--bg:#ffffff;--card:#ffffff;--ink:#0e2433;--muted:#5b6b7a;--accent:#1e90ff;--line:#e6edf3}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UniHealth — ИИ-здоровье: вода, витамины, тренировки и рецепты</title>
+  <meta name="description" content="UniHealth помогает легко поддерживать здоровые привычки: трекер воды, справочник витаминов, ИИ-тренировки и ИИ-рецепты — всё в одном приложении." />
+  <meta property="og:title" content="UniHealth — ИИ-здоровье" />
+  <meta property="og:description" content="Вода, витамины, тренировки и рецепты — персонально под тебя." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <style>
+    :root{
+      --bg:#ffffff;--card:#ffffff;--ink:#0e2433;--muted:#5b6b7a;--accent:#1e90ff;--line:#e6edf3;
+    }
     *{box-sizing:border-box}
-    body{margin:0}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#ffffff 0%, #f6fbff 60%, #ffffff 100%)}
     a{color:inherit}
     .wrap{max-width:1120px;margin:0 auto;padding:20px}
     header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(8px); background:rgba(255,255,255,.8); border-bottom:1px solid var(--line); z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:700;color:var(--ink)}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
     .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
     .links{display:flex;gap:18px;align-items:center}
-    .links a{opacity:.9;text-decoration:none;color:var(--ink)}
+    .links a{opacity:.9;text-decoration:none}
     .btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:#f3f8ff;color:var(--ink);padding:10px 14px;border-radius:12px;text-decoration:none;transition:background .15s ease,transform .1s ease}
     .btn:hover{background:#e9f3ff;transform:translateY(-2px)}
     .btn.primary{background:var(--accent);color:#ffffff;border-color:transparent;font-weight:600}
@@ -36,94 +47,75 @@ export default function App(){
     details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
     summary{cursor:pointer;font-weight:600}
     footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted);font-size:14px;background:#fbfdff}
-    @media (max-width:920px){.hero{grid-template-columns:1fr;gap:20px;padding:36px 0} header{position:static}}
-      `}</style>
-
-      <header>
-        <div className="wrap nav">
-          <div className="brand"><span className="dot"></span>UniHealth</div>
-          <nav className="links">
-            <a href="#how">Как это работает</a>
-            <a href="#features">Возможности</a>
-            <a className="btn primary" href="https://apps.apple.com/ru/app/unihealth/id6745338283?utm_source=website&utm_medium=cta&utm_campaign=landing" target="_blank" rel="noopener">Скачать в App Store</a>
-          </nav>
-        </div>
-      </header>
-
-      <main className="wrap">
-        <section className="hero">
-          <div>
-            <span className="badge">Новый здоровый день — с ИИ за 1 минуту</span>
-            <h1>UniHealth: вода, витамины, тренировки и рецепты — в одном приложении</h1>
-            <p className="lead">Создавай устойчивые привычки без стресса: умные напоминания воды, персональные тренировки и рецепты под твои цели.</p>
-            <div className="cta">
-              <a className="btn primary" href="https://apps.apple.com/ru/app/unihealth/id6745338283?utm_source=website&utm_medium=cta&utm_campaign=landing" target="_blank" rel="noopener">Скачать в App Store</a>
-              <a className="btn" href="#how">Смотреть как работает</a>
-            </div>
-          </div>
-          <div className="mock">
-            {/* Inline SVG вместо файла, чтобы предпросмотр работал без внешних ссылок */}
-            <img alt="UniHealth — экран приложения" src={`data:image/svg+xml;utf8,${encodeURIComponent(`
-              <svg xmlns='http://www.w3.org/2000/svg' width='1242' height='800'>
-                <defs>
-                  <linearGradient id='g' x1='0' x2='0' y1='0' y2='1'>
-                    <stop offset='0%' stop-color='#f7fbff'/>
-                    <stop offset='100%' stop-color='#e6f2ff'/>
-                  </linearGradient>
-                </defs>
-                <rect width='100%' height='100%' rx='24' fill='url(#g)'/>
-                <rect x='40' y='40' width='1162' height='720' rx='40' fill='white' stroke='#e6edf3'/>
-                <rect x='100' y='120' width='1042' height='120' rx='16' fill='#1e90ff'/>
-                <text x='120' y='195' font-size='56' font-family='Arial' fill='white'>UniHealth</text>
-                <g font-family='Arial' font-size='28' fill='#0e2433'>
-                  <rect x='100' y='280' width='1042' height='100' rx='16' fill='#f3f8ff' stroke='#e6edf3'/>
-                  <text x='130' y='345'>💧 Трекер воды — персональная норма</text>
-                  <rect x='100' y='400' width='1042' height='100' rx='16' fill='#f3f8ff' stroke='#e6edf3'/>
-                  <text x='130' y='465'>💪 ИИ‑тренировки — по времени и уровню</text>
-                  <rect x='100' y='520' width='1042' height='100' rx='16' fill='#f3f8ff' stroke='#e6edf3'/>
-                  <text x='130' y='585'>🍽️ ИИ‑рецепты — под КБЖУ и цель</text>
-                </g>
-              </svg>
-            `)}`} />
-          </div>
-        </section>
-
-        <section id="how" className="section">
-          <h2>Как это работает</h2>
-          <p className="muted">Три простых шага — и привычки закрепляются.</p>
-          <div className="steps">
-            <div className="step"><strong>1. Укажи цель</strong><br /><span className="muted">Похудение, энергия или поддержание формы.</span></div>
-            <div className="step"><strong>2. Получи план</strong><br /><span className="muted">ИИ подберёт воду, витамины, тренировки и рецепты.</span></div>
-            <div className="step"><strong>3. Делай 1–3 шага в день</strong><br /><span className="muted">Напоминания и прогресс — без перегруза.</span></div>
-          </div>
-        </section>
-
-        <section id="features" className="section">
-          <h2>Что внутри UniHealth</h2>
-          <div className="grid">
-            <div className="card"><h3>💧 Водный трекер</h3><p className="muted">Персональная норма и ненавязчивые напоминания.</p></div>
-            <div className="card"><h3>🍋 Справочник витаминов</h3><p className="muted">Понятно, что и когда принимать.</p></div>
-            <div className="card"><h3>💪 ИИ‑тренировки</h3><p className="muted">По уровню и времени — дома или в зале.</p></div>
-            <div className="card"><h3>🍽️ ИИ‑рецепты</h3><p className="muted">Из доступных продуктов, под твои цели и КБЖУ.</p></div>
-          </div>
-        </section>
-
-        <section className="section">
-          <h2>FAQ</h2>
-          <div className="faq">
-            <details><summary>Это бесплатно?</summary><p className="muted">Базовые функции доступны бесплатно. Продвинутая персонализация — по подписке.</p></details>
-            <details><summary>Нужен ли спортинвентарь?</summary><p className="muted">Нет, доступны тренировки с весом тела. При желании можно подключить оборудование.</p></details>
-            <details><summary>Работает без интернета?</summary><p className="muted">Часть функций — да (например, напоминания воды). Генерация ИИ требует подключения.</p></details>
-            <details><summary>Для кого приложение?</summary><p className="muted">Для новичков и продвинутых — цель одна: закрепить полезные привычки.</p></details>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <div className="wrap">
-          © 2025 UniHealth. Все права защищены · <a href="#">Политика конфиденциальности</a>
-        </div>
-      </footer>
+    @media (max-width:920px){
+      .hero{grid-template-columns:1fr;gap:20px;padding:36px 0}
+      header{position:static}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><span class="dot"></span>UniHealth</div>
+      <nav class="links">
+        <a href="#how">Как это работает</a>
+        <a href="#features">Возможности</a>
+        <a class="btn primary" href="https://apps.apple.com/ru/app/unihealth/id6745338283" target="_blank" rel="noopener">Скачать в App Store</a>
+      </nav>
     </div>
-  )
-}
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="badge">Новый здоровый день — с ИИ за 1 минуту</span>
+        <h1>UniHealth: вода, витамины, тренировки и рецепты — в одном приложении</h1>
+        <p class="lead">Создавай устойчивые привычки без стресса: умные напоминания воды, персональные тренировки и рецепты под твои цели.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://apps.apple.com/ru/app/unihealth/id6745338283" target="_blank" rel="noopener">Скачать в App Store</a>
+          <a class="btn" href="#how">Смотреть как работает</a>
+        </div>
+      </div>
+      <div class="mock">
+        <img src="assets/hero-mockup.jpg" alt="UniHealth — экран приложения" />
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <h2>Как это работает</h2>
+      <p class="muted">Три простых шага — и привычки закрепляются.</p>
+      <div class="steps">
+        <div class="step"><strong>1. Укажи цель</strong><br><span class="muted">Похудение, энергия или поддержание формы.</span></div>
+        <div class="step"><strong>2. Получи план</strong><br><span class="muted">ИИ подберёт воду, витамины, тренировки и рецепты.</span></div>
+        <div class="step"><strong>3. Делай 1–3 шага в день</strong><br><span class="muted">Напоминания и прогресс — без перегруза.</span></div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Что внутри UniHealth</h2>
+      <div class="grid">
+        <div class="card"><h3>💧 Водный трекер</h3><p class="muted">Персональная норма и ненавязчивые напоминания.</p></div>
+        <div class="card"><h3>🍋 Справочник витаминов</h3><p class="muted">Понятно, что и когда принимать.</p></div>
+        <div class="card"><h3>💪 ИИ-тренировки</h3><p class="muted">По уровню и времени — дома или в зале.</p></div>
+        <div class="card"><h3>🍽️ ИИ-рецепты</h3><p class="muted">Из доступных продуктов, под твои цели и КБЖУ.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Это бесплатно?</summary><p class="muted">Базовые функции доступны бесплатно. Продвинутая персонализация — по подписке.</p></details>
+        <details><summary>Нужен ли спортинвентарь?</summary><p class="muted">Нет, доступны тренировки с весом тела. При желании можно подключить оборудование.</p></details>
+        <details><summary>Работает без интернета?</summary><p class="muted">Часть функций — да (например, напоминания воды). Генерация ИИ требует подключения.</p></details>
+        <details><summary>Для кого приложение?</summary><p class="muted">Для новичков и продвинутых — цель одна: закрепить полезные привычки.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2025 UniHealth. Все права защищены · <a href="#">Политика конфиденциальности</a>
+    </div>
+  </footer>
+</body>
+</html>
