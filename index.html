@@ -114,7 +114,7 @@
     @media (max-width:1024px){ .grid{grid-template-columns:repeat(2,1fr)} }
     @media (max-width:600px){ .grid{grid-template-columns:1fr} }
 
-    .card{ background:linear-gradient(180deg,#0c1a55,#0a1e62); border:var(--border); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow) }
+    .card,.panel{ background:linear-gradient(180deg,#0c1a55,#0a1e62); border:var(--border); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow) }
     .card h3{margin:.2em 0 .3em;font-size:18px}
 
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
@@ -122,8 +122,11 @@
     @media (max-width:600px){ .steps{grid-template-columns:1fr} }
     .step{ border:1px dashed var(--line); border-radius:16px; padding:16px; background:rgba(13,36,114,.35) }
 
+    /* сетки под новые блоки */
+    .icon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .aud-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:12px}
+
     /* CTA Telegram */
-    .cta-telegram{ text-align:center; margin-top:28px }
     .btn-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:12px }
 
     /* FAQ обновлённый вид */
@@ -151,13 +154,18 @@
       <div class="brand"><span class="dot"></span>UniHealth</div>
       <nav class="links">
         <a href="#how">Как это работает</a>
+        <a href="#why">Почему важно</a>
+        <a href="#ai">ИИ</a>
         <a href="#features">Возможности</a>
-        <a class="btn primary" href="https://apps.apple.com/ru/app/unihealth/id6745338283" target="_blank" rel="noopener">Скачать в App Store</a>
+        <a href="#audience">Для кого</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn primary" href="https://apps.apple.com/ru/app/unihealth/id6745338283" target="_blank" rel="noopener">Скачать</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
+    <!-- HERO -->
     <section class="hero">
       <!-- декоративные углы -->
       <img class="bg-corner bg-top" src="assets/uh-cover.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
@@ -165,11 +173,11 @@
 
       <div style="position:relative;z-index:1">
         <span class="badge">Новый здоровый день — с ИИ за 1 минуту</span>
-        <h1>UniHealth: вода, витамины, тренировки и рецепты — в одном приложении</h1>
-        <p class="lead">Создавай устойчивые привычки без стресса: умные напоминания воды, персональные тренировки и рецепты под твои цели.</p>
+        <h1>UniHealth — твой умный путь к здоровью и энергии</h1>
+        <p class="lead">Устал от учёбы или работы, но хочешь заботиться о себе? UniHealth поможет внедрить полезные привычки: вода, питание, витамины, тренировки — всё в одном приложении.</p>
         <div class="cta">
           <a class="btn primary" href="https://apps.apple.com/ru/app/unihealth/id6745338283" target="_blank" rel="noopener">Скачать в App Store</a>
-          <a class="btn" href="#how">Смотреть как работает</a>
+          <a class="btn" href="#how">Узнать, как работает</a>
         </div>
       </div>
 
@@ -179,6 +187,7 @@
       </div>
     </section>
 
+    <!-- Как это работает (короткий пошаговый блок) -->
     <section id="how" class="section">
       <h2>Как это работает</h2>
       <p class="muted">Три простых шага — и привычки закрепляются.</p>
@@ -189,26 +198,62 @@
       </div>
     </section>
 
+    <!-- Почему это важно -->
+    <section id="why" class="section">
+      <h2>Почему это важно</h2>
+      <p class="muted">Мир стал быстрее — времени на себя всё меньше. Мы устали от десятков разрозненных приложений для спорта, питания и здоровья. UniHealth объединяет всё в одном.</p>
+      <div class="icon-grid">
+        <div class="panel">⏳ Нехватка времени</div>
+        <div class="panel">📚 Много лишней информации</div>
+        <div class="panel">🧩 Нет единого решения</div>
+        <div class="panel">💪 Желание быть в форме</div>
+      </div>
+    </section>
+
+    <!-- Как работает ИИ -->
+    <section id="ai" class="section">
+      <h2>Как работает наш ИИ</h2>
+      <div class="grid">
+        <div class="panel">Индивидуальный график тренировок</div>
+        <div class="panel">Оптимальное количество воды и витаминов</div>
+        <div class="panel">Баланс питания под твои цели</div>
+        <div class="panel">Мотивирующие напоминания каждый день</div>
+      </div>
+      <p class="muted">🧠 ИИ адаптируется под твой прогресс и настроение.</p>
+    </section>
+
+    <!-- Возможности -->
     <section id="features" class="section">
       <h2>Что внутри UniHealth</h2>
       <div class="grid">
         <div class="card"><h3>💧 Водный трекер</h3><p class="muted">Персональная норма и ненавязчивые напоминания.</p></div>
-        <div class="card"><h3>🍋 Справочник витаминов</h3><p class="muted">Понятно, что и когда принимать.</p></div>
-        <div class="card"><h3>💪 ИИ-тренировки</h3><p class="muted">По уровню и времени — дома или в зале.</p></div>
-        <div class="card"><h3>🍽️ ИИ-рецепты</h3><p class="muted">Из доступных продуктов, под твои цели и КБЖУ.</p></div>
+        <div class="card"><h3>🍋 Витамины и добавки</h3><p class="muted">Понятно, что и когда принимать.</p></div>
+        <div class="card"><h3>💪 Умные тренировки</h3><p class="muted">По уровню и времени — дома или в зале.</p></div>
+        <div class="card"><h3>🍽️ Персональные рецепты</h3><p class="muted">Из доступных продуктов, под твои цели и КБЖУ.</p></div>
+        <div class="card"><h3>🕒 Индивидуальное расписание</h3><p class="muted">План под твой ритм жизни.</p></div>
+        <div class="card"><h3>💬 Мотивационные уведомления</h3><p class="muted">Нежно напоминаем — без давления.</p></div>
       </div>
     </section>
 
-    <!-- CTA на Telegram + App Store -->
-    <section class="section" id="news">
-      <h2 style="text-align:center" class="muted">Будь в курсе релизов, акций и советов по здоровью.</h2>
+    <!-- Для кого -->
+    <section id="audience" class="section">
+      <h2>Для кого приложение</h2>
+      <p class="muted">UniHealth создан для тех, кто устал, но хочет быть в ресурсе.</p>
+      <div class="aud-list">
+        <div class="panel">Студенты, устающие на учёбе</div>
+        <div class="panel">Молодые специалисты с ненормированным графиком</div>
+        <div class="panel">Кто хочет укрепить иммунитет и самочувствие</div>
+      </div>
+
+      <!-- CTA: Telegram + App Store -->
       <div class="btn-row">
         <a class="btn primary" href="https://t.me/unihealthnews" target="_blank" rel="noopener">Join us in Telegram</a>
         <a class="btn" href="https://apps.apple.com/ru/app/unihealth/id6745338283" target="_blank" rel="noopener">Скачать в App Store</a>
       </div>
     </section>
 
-    <section class="section">
+    <!-- FAQ -->
+    <section id="faq" class="section">
       <h2>FAQ</h2>
       <div class="faq">
         <details><summary>Это бесплатно?</summary><p class="muted">Базовые функции доступны бесплатно. Продвинутая персонализация — по подписке.</p></details>
@@ -225,7 +270,7 @@
     </div>
   </footer>
 
-  <!-- Скрипт дополнительной плавности (учёт хедера для старых браузеров) -->
+  <!-- Плавность прокрутки с учётом фикс-хедера -->
   <script>
     (function(){
       const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72;
